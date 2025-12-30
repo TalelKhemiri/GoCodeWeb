@@ -93,7 +93,10 @@ Ensure the following are installed:
 
 ```bash
 cd backend
-python DBcreate.py
+python -m venv venv
+source ./venv/bin/activate
+pip install -r requierments
+sudo ./venv/bin/python DBcreate.py
 ```
 
 Creates the required MySQL database automatically.
@@ -103,7 +106,7 @@ Creates the required MySQL database automatically.
 ### 2️⃣ Backend Setup
 
 ```bash
-python setup.py
+sudo ./venv/bin/python setup.py
 ```
 
 Choose **Option 1 – Fresh Start**.
