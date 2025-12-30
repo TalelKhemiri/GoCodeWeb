@@ -24,10 +24,11 @@ The project is built with **Django REST Framework** on the backend and **React +
 
 ## 🖼 Screenshots
 
-![screenshot](docs/screenshots/Screenshot From 2025-12-30 13-57-45.png)
-![screenshot](docs/screenshots/Screenshot From 2025-12-30 13-58-01.png)
+![screenshot](docs/screenshots/screenshot-2025-12-30-13-57-45.png)
+![screenshot](docs/screenshots/screenshot-2025-12-30-13-58-01.png)
 
 ---
+
 
 ## 📑 Table of Contents
 
