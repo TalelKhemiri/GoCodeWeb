@@ -24,8 +24,8 @@ The project is built with **Django REST Framework** on the backend and **React +
 
 ## 🖼 Screenshots
 
-![screenshot](docs/screenshots/screenshot-2025-12-30-13-57-45.png)
-![screenshot](docs/screenshots/screenshot-2025-12-30-13-58-01.png)
+![screenshot](docs/screenshots/Screenshot1.png)
+![screenshot](docs/screenshots/Screenshot2.png)
 
 ---
 
@@ -68,7 +68,7 @@ Project_Root/
 - Python 3.10+
 - Django
 - Django REST Framework
-- MySQL
+- MySQL (ensure that mysql -u root can connect)
 
 ### Frontend
 - Node.js (LTS)

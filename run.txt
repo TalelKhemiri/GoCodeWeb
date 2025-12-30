@@ -1,0 +1,18 @@
+# prepare db
+mysql -u root -p
+	CREATE DATABASE gocode_db;
+	EXIT;
+
+# run backend
+	cd backend
+	python -m venv venv
+	source venv/bin/activate
+	pip install -r requierments.txt
+	python manage.py makemigrations users course
+	python manage.py migrate
+	python manage.py runserver
+
+# run frontend
+	cd frontend
+	npm install
+	npm run dev
