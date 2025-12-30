@@ -1,0 +1,221 @@
+/* Apropos.css */
+
+/* Define the palette from your image */
+:root {
+  --color-sky: #A4D7E1;       /* Light Blue */
+  --color-teal: #7A9B9E;      /* Muted Teal */
+  --color-paper: #F0F4F8;     /* Off-White */
+  --color-ink: #2C3E50;       /* Dark Blue */
+  --color-stone: #EDEEF1;     /* Light Grey */
+  --shadow-soft: 0 10px 30px rgba(44, 62, 80, 0.1);
+}
+
+.apropos-container {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  background: linear-gradient(135deg, var(--color-stone) 0%, var(--color-sky) 100%);
+  padding: 80px 20px 120px; /* Extra padding bottom for the road */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--color-ink);
+  animation: slideDown 0.8s ease-out;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-teal);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+/* --- The Road Animation --- */
+.road-stage {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--color-ink);
+  border-top: 4px solid var(--color-teal);
+  z-index: 1;
+}
+
+.road-lines {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 200%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 50%, #fff 50%);
+  background-size: 100px 100%;
+  transform: translateY(-50%);
+  animation: moveRoad 2s linear infinite;
+}
+
+.car-icon {
+  position: absolute;
+  bottom: 15px; /* On top of the road */
+  left: 20%;
+  font-size: 3rem;
+  color: var(--color-paper);
+  z-index: 2;
+  animation: carBounce 1s infinite alternate ease-in-out;
+}
+
+/* --- Content Sections --- */
+.content-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.text-block h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--color-teal);
+  position: relative;
+}
+
+.text-block h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-sky);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.text-block p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--color-ink);
+  opacity: 0.9;
+}
+
+/* --- Value Cards --- */
+.values-section {
+  background-color: var(--color-stone);
+  padding: 80px 20px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.value-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 5px solid var(--color-sky);
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(44, 62, 80, 0.15);
+  border-bottom-color: var(--color-teal);
+}
+
+.icon-wrapper {
+  background-color: var(--color-paper);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2rem;
+  color: var(--color-teal);
+}
+
+/* --- CTA Section --- */
+.cta-section {
+  text-align: center;
+  padding: 100px 20px;
+  background: var(--color-ink);
+  color: white;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--color-sky);
+  color: var(--color-ink);
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  cursor: pointer;
+  border: none;
+}
+
+.cta-button:hover {
+  background-color: var(--color-teal);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* --- Animations --- */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes moveRoad {
+  from { transform: translateY(-50%) translateX(0); }
+  to { transform: translateY(-50%) translateX(-50px); }
+}
+
+@keyframes carBounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2px); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .section-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}

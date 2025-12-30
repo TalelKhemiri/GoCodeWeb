@@ -1,0 +1,218 @@
+/* ======================================================
+   REGISTER.CSS - COMPLET (AVEC OPTION VOIR MOT DE PASSE)
+   Palette: Calm Cool Tones (#A4D7E1, #7A9B9E, #2C3E50)
+   ====================================================== */
+
+:root {
+  --c-sky: #A4D7E1;       /* Bleu Ciel */
+  --c-teal: #7A9B9E;      /* Bleu Pétrole/Gris */
+  --c-white: #F0F4F8;     /* Blanc cassé */
+  --c-dark: #2C3E50;      /* Bleu Nuit */
+  --c-gray: #EDEEF1;      
+}
+
+/* 1. CONTENEUR AVEC FOND ROUTE */
+.register-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px 40px 20px; 
+  
+  /* IMAGE DE FOND : Route */
+  background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Overlay sombre pour la lisibilité */
+.register-overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.6));
+  z-index: 1;
+}
+
+.register-card-wrapper {
+  position: relative; z-index: 2;
+  width: 100%; display: flex; justify-content: center;
+}
+
+/* 2. LA CARTE (EFFET VERRE) */
+.register-card {
+  width: 100%; max-width: 550px;
+  background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  color: white;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HEADER */
+.card-header { text-align: center; margin-bottom: 30px; }
+.card-header h2 {
+  font-size: 2rem; font-weight: 800; margin-bottom: 10px;
+  color: var(--c-sky); 
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.card-header p { font-size: 1rem; color: #ecf0f1; opacity: 0.9; }
+
+/* SÉLECTEUR DE RÔLE */
+.role-selector-container { display: flex; gap: 15px; margin-bottom: 25px; }
+
+.role-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.role-card:hover { background: rgba(255, 255, 255, 0.2); }
+
+.role-card.active {
+  background: rgba(164, 215, 225, 0.2); 
+  border-color: var(--c-sky);
+  box-shadow: 0 0 15px rgba(164, 215, 225, 0.3);
+}
+
+.role-icon { color: var(--c-sky); margin-bottom: 5px; }
+.role-card.active .role-icon { color: #fff; transform: scale(1.1); transition: 0.3s; }
+.role-card span { font-weight: 600; font-size: 0.9rem; }
+
+.check-circle {
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.5); margin-top: 5px;
+  transition: 0.3s;
+}
+.role-card.active .check-circle {
+  background: var(--c-sky); border-color: var(--c-sky);
+  box-shadow: 0 0 8px var(--c-sky);
+}
+
+/* --- FORMULAIRE & INPUTS --- */
+.form-row { display: flex; gap: 15px; margin-bottom: 15px; }
+.input-group { position: relative; width: 100%; margin-bottom: 15px; }
+
+/* Bulle de l'icône (GAUCHE) */
+.input-group .icon-wrapper {
+  position: absolute; 
+  left: 10px; 
+  top: 50%; 
+  transform: translateY(-50%);
+  width: 40px; height: 40px; 
+  background: rgba(255, 255, 255, 0.9); 
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-dark); 
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Champ de texte standard */
+.custom-input {
+  width: 100%;
+  /* Padding GAUCHE de 65px pour laisser la place à la bulle icône */
+  padding: 14px 15px 14px 65px; 
+  
+  background: rgba(240, 244, 248, 0.9); 
+  border: 2px solid transparent;
+  border-radius: 25px; 
+  font-size: 1rem; color: var(--c-dark);
+  transition: all 0.3s;
+}
+
+/* Champ Mot de Passe Spécifique (pour éviter d'écrire sous l'œil) */
+.custom-input.password-input {
+  padding-right: 50px; /* Espace supplémentaire à droite */
+}
+
+.custom-input:focus {
+  outline: none; background: #ffffff;
+  border-color: var(--c-sky);
+  box-shadow: 0 0 0 4px rgba(164, 215, 225, 0.3);
+}
+
+/* BOUTON ŒIL (DROITE) */
+.password-toggle {
+  position: absolute;
+  right: 15px; /* Collé à droite */
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-dark);
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.6;
+  display: flex; align-items: center;
+  transition: all 0.2s;
+}
+
+.password-toggle:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  color: var(--c-teal);
+}
+
+/* BOUTON SUBMIT */
+.btn-primary {
+  width: 100%; padding: 16px;
+  background-color: var(--c-sky); 
+  color: var(--c-dark); 
+  border: none; border-radius: 12px;
+  font-size: 1.1rem; font-weight: 800;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #fff; 
+  color: var(--c-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(164, 215, 225, 0.4);
+}
+
+.btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* LOADER */
+.loader {
+  width: 20px; height: 20px; border: 3px solid rgba(44, 62, 80, 0.3);
+  border-top-color: var(--c-dark); border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* FOOTER */
+.card-footer { text-align: center; margin-top: 25px; font-size: 0.95rem; }
+.card-footer p { color: rgba(255,255,255,0.8); }
+
+.login-link {
+  color: var(--c-sky); font-weight: 700; text-decoration: none; margin-left: 5px;
+  transition: color 0.2s;
+}
+.login-link:hover { color: #fff; text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-row { flex-direction: column; gap: 0; }
+  .register-card { padding: 30px 20px; }
+  .role-selector-container { flex-direction: row; }
+}

@@ -1,0 +1,195 @@
+/* ======================================================
+   QUIZ.CSS - VERSION PREMIUM (PLAYER REVAMPED)
+   Palette: #2C3E50 (Dark), #A4D7E1 (Sky), #F0F4F8 (Bg)
+   ====================================================== */
+
+/* --- FOND GÉNÉRAL --- */
+.quiz-page-container {
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', sans-serif;
+  color: #2C3E50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- DESIGN DE LA LISTE (DASHBOARD) --- */
+.dashboard-header { text-align: center; margin-bottom: 40px; }
+.dashboard-header h1 { font-size: 2.5rem; font-weight: 800; color: #2C3E50; }
+.highlight { color: #2980b9; position: relative; }
+.highlight::after {
+  content: ''; position: absolute; bottom: 5px; left: 0; right: 0;
+  height: 8px; background: rgba(164, 215, 225, 0.6); z-index: -1; border-radius: 4px;
+}
+
+.modules-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px; width: 100%; max-width: 1200px;
+}
+
+.module-card {
+  background: #fff; border-radius: 20px; padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex; flex-direction: column;
+}
+.module-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.card-icon-wrapper {
+  width: 50px; height: 50px; background: #e0f7fa; color: #00838f;
+  border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
+}
+.module-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid #f1f1f1; }
+.btn-start-module {
+  background: #2C3E50; color: white; padding: 8px 16px; border-radius: 20px;
+  text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; transition: 0.3s;
+}
+.btn-start-module:hover { background: #34495e; transform: scale(1.05); }
+
+
+/* ======================================================
+   ★ LE NOUVEAU DESIGN DU PLAYER (QUIZ INTERNE) ★
+   ====================================================== */
+
+.player-wrapper {
+  width: 100%;
+  max-width: 750px; /* Largeur idéale pour la lecture */
+  margin: 0 auto;
+}
+
+/* 1. BARRE DE PROGRESSION & HEADER */
+.quiz-header {
+  margin-bottom: 25px;
+}
+.quiz-meta {
+  display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 10px;
+}
+.module-tag {
+  font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  color: #7f8c8d; background: rgba(255,255,255,0.6); padding: 5px 10px; border-radius: 8px;
+}
+.progress-text { font-weight: 700; color: #2C3E50; }
+
+.progress-container {
+  height: 8px; background: #dfe6e9; border-radius: 10px; overflow: hidden;
+}
+.progress-bar {
+  height: 100%; background: linear-gradient(90deg, #A4D7E1, #2980b9);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. LA CARTE DE QUESTION (Le gros changement) */
+.question-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(44, 62, 80, 0.15); /* Ombre profonde et douce */
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.5s ease-out;
+}
+
+/* L'image de la question */
+.question-image-container {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.question-image-container img {
+  width: 100%; height: auto; display: block;
+  object-fit: cover;
+}
+
+/* Le texte de la question */
+.question-text {
+  font-size: 1.35rem; font-weight: 700; color: #2C3E50; line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+/* 3. LES OPTIONS DE RÉPONSE */
+.options-list {
+  display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px;
+}
+
+.option-btn {
+  width: 100%;
+  padding: 18px 20px;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 14px;
+  color: #2C3E50;
+  font-size: 1rem; font-weight: 600; text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex; justify-content: space-between; align-items: center;
+  position: relative;
+}
+
+/* Effets Hover & Active */
+.option-btn:hover:not(:disabled) {
+  background: #fff; border-color: #A4D7E1;
+  transform: translateX(5px);
+  box-shadow: 0 2px 10px rgba(164, 215, 225, 0.3);
+}
+
+.option-btn.selected {
+  background: rgba(164, 215, 225, 0.15);
+  border-color: #2980b9;
+  color: #2980b9;
+}
+
+/* États Correct / Incorrect */
+.option-btn.correct {
+  background: #d1fae5; border-color: #10b981; color: #064e3b;
+}
+.option-btn.wrong {
+  background: #fee2e2; border-color: #ef4444; color: #7f1d1d;
+}
+
+/* 4. FOOTER D'ACTION */
+.quiz-footer {
+  display: flex; justify-content: flex-end; align-items: center;
+  border-top: 1px solid #f0f0f0; padding-top: 20px; margin-top: 10px;
+}
+
+.btn-primary {
+  background: #2C3E50; color: #fff;
+  border: none; padding: 14px 35px;
+  border-radius: 12px;
+  font-size: 1rem; font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #34495e; transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.4);
+}
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; transform: none; }
+
+/* Feedback Box */
+.feedback-container {
+  margin-top: -15px; margin-bottom: 25px;
+  padding: 15px; border-radius: 12px;
+  animation: fadeIn 0.3s;
+}
+.feedback-container.success { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.feedback-container.error { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+/* ANIMATIONS */
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* RÉSULTATS */
+.result-box { text-align: center; padding: 40px 20px; }
+.score-display { font-size: 4rem; font-weight: 900; margin: 20px 0; }
+.score-success { color: #10b981; }
+.score-fail { color: #ef4444; }
+.action-row { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }

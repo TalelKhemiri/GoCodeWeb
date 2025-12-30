@@ -1,0 +1,273 @@
+/* ==========================================================================
+   THEME: CALM COOL TONES - REALISTIC DRIVING EDITION
+   Palette Source: image_264dce.png
+   ========================================================================== */
+
+:root {
+    /* Palette imposée */
+    --col-sky-blue: #A4D7E1;      /* Bleu Ciel */
+    --col-teal-grey: #7A9B9E;     /* Gris/Vert Sarcelle */
+    --col-bg-white: #F0F4F8;      /* Blanc Cassé / Fond */
+    --col-midnight: #2C3E50;      /* Bleu Nuit Foncé (Texte principal) */
+    --col-grey-light: #EDEEF1;    /* Gris très clair */
+    
+    --font-main: 'Inter', system-ui, sans-serif;
+    --radius-std: 12px;
+    --shadow-card: 0 15px 35px rgba(44, 62, 80, 0.1);
+}
+
+body {
+    background-color: var(--col-bg-white);
+    color: var(--col-midnight);
+    font-family: var(--font-main);
+    margin: 0;
+}
+
+.container-max {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative; z-index: 2;
+}
+
+/* =========================================
+   1. HERO SECTION (PHOTO RÉALISTE)
+   ========================================= */
+/* =========================================
+   1. HERO SECTION : AMBIANCE "CODE DE LA ROUTE"
+   ========================================= */
+.hero-calm-real {
+    position: relative;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* PHOTO CHOISIE : Vue Conducteur (Volant + Route)
+       C'est l'image la plus immersive pour une auto-école. */
+    background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1920&auto=format&fit=crop');
+    
+    background-size: cover;
+    background-position: center bottom; /* Cadrage bas pour bien voir le volant et la route */
+    background-attachment: fixed; /* L'image reste fixe quand on descend (effet pro) */
+    overflow: hidden;
+}
+
+/* Filtre pour que le texte reste lisible sur le pare-brise/ciel */
+.hero-overlay-gradient {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        180deg, 
+        rgba(44, 62, 80, 0.8) 0%,   /* Haut sombre pour le titre */
+        rgba(44, 62, 80, 0.5) 50%,  /* Milieu transparent pour voir la route */
+        rgba(30, 41, 59, 0.9) 100%  /* Bas très sombre pour fondre avec le reste */
+    );
+    z-index: 1;
+}
+
+/* Overlay ajusté pour que le texte reste lisible sur l'asphalte et le ciel */
+.hero-overlay-gradient {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        180deg, 
+        rgba(44, 62, 80, 0.7) 0%,   /* Assombrit le ciel pour le titre */
+        rgba(44, 62, 80, 0.4) 50%,  /* Milieu plus clair pour voir le paysage */
+        rgba(30, 41, 59, 0.8) 100%  /* Bas sombre pour fondre avec la section suivante */
+    );
+    z-index: 1;
+}
+
+/* On renforce légèrement l'overlay pour que le texte reste lisible sur le tableau de bord */
+.hero-overlay-gradient {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        180deg, 
+        rgba(44, 62, 80, 0.7) 0%,   /* Plus sombre en haut */
+        rgba(44, 62, 80, 0.5) 40%,  /* Milieu transparent */
+        rgba(30, 41, 59, 0.8) 100%  /* Sombre en bas pour fondre avec le tableau de bord */
+    );
+    z-index: 1;
+}
+
+/* Le reste du CSS reste identique... */
+
+/* Overlay dégradé pour lisibilité du texte (Midnight -> Transparent) */
+.hero-overlay-gradient {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        180deg, 
+        rgba(44, 62, 80, 0.85) 0%, 
+        rgba(44, 62, 80, 0.6) 50%, 
+        rgba(122, 155, 158, 0.4) 100%
+    );
+    z-index: 1;
+}
+
+.hero-content-centered {
+    position: relative; z-index: 3;
+    display: flex; flex-direction: column; align-items: center;
+    max-width: 900px;
+}
+
+.badge-pill-glass {
+    background: rgba(164, 215, 225, 0.2); /* Base Sky Blue */
+    border: 1px solid rgba(164, 215, 225, 0.4);
+    backdrop-filter: blur(10px);
+    color: var(--col-sky-blue);
+    padding: 8px 20px; border-radius: 50px;
+    font-weight: 600; font-size: 0.95rem; margin-bottom: 24px;
+    display: flex; align-items: center;
+}
+
+.hero-title-large {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900; line-height: 1.1; margin-bottom: 24px;
+    color: white;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.text-highlight-blue {
+    color: var(--col-sky-blue);
+    background: linear-gradient(120deg, transparent 0%, transparent 100%); /* Pas de fond, juste couleur */
+}
+
+.hero-subtitle-glass {
+    font-size: 1.25rem;
+    color: #e2e8f0;
+    max-width: 700px; line-height: 1.6; margin-bottom: 40px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-actions-row {
+    display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+}
+
+.btn-hero-solid {
+    background-color: var(--col-sky-blue);
+    color: var(--col-midnight);
+    padding: 16px 36px; border-radius: var(--radius-std);
+    font-weight: 700; text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+    transition: transform 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.btn-hero-solid:hover { transform: translateY(-4px); background-color: #fff; }
+
+.btn-hero-glass {
+    background: rgba(255, 255, 255, 0.1);
+    color: white; border: 1px solid rgba(255,255,255,0.3);
+    padding: 16px 36px; border-radius: var(--radius-std);
+    font-weight: 600; text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+    backdrop-filter: blur(5px); transition: all 0.3s;
+}
+.btn-hero-glass:hover { background: rgba(255,255,255,0.2); border-color: white; }
+
+.curve-bottom {
+    position: absolute; bottom: -2px; left: 0; width: 100%; height: 80px; z-index: 2;
+}
+.curve-bottom svg { width: 100%; height: 100%; }
+
+/* =========================================
+   2. FEATURES SECTION (PROPRE & CALME)
+   ========================================= */
+.features-strip { padding: 100px 0; background: var(--col-bg-white); }
+.section-header.center h2 { font-size: 2.5rem; color: var(--col-midnight); margin-bottom: 15px; }
+.highlight-teal { color: var(--col-teal-grey); }
+
+.features-grid-cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-card-item {
+    background: white; padding: 35px; border-radius: 20px;
+    border: 1px solid var(--col-grey-light);
+    transition: 0.3s ease;
+}
+.feature-card-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--col-sky-blue);
+}
+
+.icon-wrapper {
+    width: 60px; height: 60px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px; color: var(--col-midnight);
+}
+.teal-bg { background-color: rgba(122, 155, 158, 0.15); color: var(--col-teal-grey); }
+.blue-bg { background-color: rgba(164, 215, 225, 0.25); color: #2980b9; }
+.dark-bg { background-color: var(--col-midnight); color: var(--col-sky-blue); }
+
+/* =========================================
+   3. CATALOGUE COURS (LAYOUT PROPRE)
+   ========================================= */
+.courses-catalog-section { padding-bottom: 120px; background: var(--col-bg-white); }
+
+.catalog-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 60px; }
+.road-line-dashed {
+    flex-grow: 1; height: 3px; margin-left: 30px;
+    background: repeating-linear-gradient(90deg, var(--col-teal-grey), var(--col-teal-grey) 15px, transparent 15px, transparent 30px);
+    opacity: 0.3;
+}
+
+.courses-cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 35px;
+}
+
+.course-card-calm {
+    background: white; border-radius: 18px; overflow: hidden;
+    border: 1px solid var(--col-grey-light);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    display: flex; flex-direction: column; transition: 0.3s;
+}
+.course-card-calm:hover {
+    transform: translateY(-5px); box-shadow: var(--shadow-card);
+}
+
+.card-image-wrapper { height: 200px; position: relative; overflow: hidden; }
+.card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.course-card-calm:hover img { transform: scale(1.08); }
+
+.category-tag {
+    position: absolute; top: 15px; left: 15px;
+    background: var(--col-midnight); color: var(--col-sky-blue);
+    padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;
+}
+
+.card-body-calm { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+.meta-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.9rem; color: #7f8c8d; }
+
+.price-pill { background: var(--col-bg-white); padding: 4px 10px; border-radius: 6px; font-weight: 700; color: var(--col-midnight); }
+.price-pill.free { background: var(--col-sky-blue); color: var(--col-midnight); }
+
+.card-body-calm h3 { font-size: 1.3rem; margin: 0 0 10px 0; color: var(--col-midnight); }
+.description-truncate { color: #5d6d7e; font-size: 0.95rem; line-height: 1.5; margin-bottom: 25px; flex-grow: 1; }
+
+.btn-access-full {
+    width: 100%; padding: 14px; background: var(--col-midnight); color: white;
+    border: none; border-radius: 10px; font-weight: 600; cursor: pointer;
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+    transition: background 0.2s;
+}
+.btn-access-full:hover { background: #34495e; }
+
+/* =========================================
+   4. FOOTER
+   ========================================= */
+.footer-calm { background-color: var(--col-midnight); color: white; padding-top: 60px; }
+.footer-content { display: flex; justify-content: space-between; padding-bottom: 40px; }
+.dot-teal { color: var(--col-sky-blue); }
+.footer-links { display: flex; gap: 40px; color: #b0bec5; font-size: 0.9rem; }
+
+.copyright-bar { background: #212f3d; text-align: center; padding: 20px; font-size: 0.85rem; color: #7f8c8d; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-title-large { font-size: 2.5rem; }
+    .catalog-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .road-line-dashed { display: none; }
+    .footer-content { flex-direction: column; gap: 30px; }
+}

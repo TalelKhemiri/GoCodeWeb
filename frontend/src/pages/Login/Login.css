@@ -1,0 +1,179 @@
+/* ======================================================
+   LOGIN.CSS - THEME "ROAD TO SUCCESS" (COHÉRENT AVEC REGISTER)
+   Palette: Calm Cool Tones (#A4D7E1, #7A9B9E, #2C3E50)
+   ====================================================== */
+
+:root {
+  --c-sky: #A4D7E1;       /* Bleu clair */
+  --c-teal: #7A9B9E;      /* Teal */
+  --c-dark: #2C3E50;      /* Bleu foncé */
+  --c-white: #ffffff;
+}
+
+/* 1. CONTENEUR AVEC FOND ROUTE */
+.login-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px 40px 20px; /* Espace header */
+  
+  /* IMAGE DE FOND : Route sinueuse (Même image que Register pour la cohérence) */
+  background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Overlay sombre */
+.login-overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.6));
+  z-index: 1;
+}
+
+.login-card-wrapper {
+  position: relative; z-index: 2;
+  width: 100%; display: flex; justify-content: center;
+}
+
+/* 2. LA CARTE (Verre Dépoli) */
+.login-card {
+  width: 100%; max-width: 450px;
+  background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  color: white;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HEADER */
+.card-header { text-align: center; margin-bottom: 30px; }
+.card-header h2 {
+  font-size: 2rem; font-weight: 800; margin-bottom: 10px;
+  color: var(--c-sky); 
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.card-header p { font-size: 1rem; color: #ecf0f1; opacity: 0.9; }
+
+/* --- INPUTS & FORMULAIRE (CORRECTION TEXTE CACHÉ) --- */
+.input-group { position: relative; width: 100%; margin-bottom: 20px; }
+
+/* La bulle de l'icône */
+.input-group .icon-wrapper {
+  position: absolute; 
+  left: 10px; 
+  top: 50%; 
+  transform: translateY(-50%);
+  width: 40px; height: 40px; 
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-dark); 
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+/* Le champ de texte */
+.custom-input {
+  width: 100%;
+  /* === IMPORTANT : 65px pour laisser la place à la bulle === */
+  padding: 14px 15px 14px 65px; 
+  
+  background: rgba(240, 244, 248, 0.9); /* Blanc cassé */
+  border: 2px solid transparent;
+  border-radius: 25px; /* Arrondi style "pill" */
+  font-size: 1rem; color: var(--c-dark);
+  transition: all 0.3s;
+}
+
+.custom-input:focus {
+  outline: none; background: #ffffff;
+  border-color: var(--c-sky);
+  box-shadow: 0 0 0 4px rgba(164, 215, 225, 0.3);
+}
+
+.input-group:focus-within .icon-wrapper {
+  transform: translateY(-50%) scale(1.1);
+  background: var(--c-sky); color: white;
+}
+
+/* OPTIONS (Se souvenir / MDP oublié) */
+.form-options {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.9rem; color: rgba(255,255,255,0.9); margin-bottom: 25px;
+}
+.remember-me { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.forgot-password { color: var(--c-sky); text-decoration: none; font-weight: 600; }
+.forgot-password:hover { text-decoration: underline; color: white; }
+
+/* BOUTON */
+.btn-submit {
+  width: 100%; padding: 16px;
+  background-color: var(--c-sky); 
+  color: var(--c-dark); 
+  border: none; border-radius: 12px;
+  font-size: 1.1rem; font-weight: 800;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: #fff; 
+  color: var(--c-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(164, 215, 225, 0.4);
+}
+
+.btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* ERREUR */
+.error-message {
+  background: rgba(239, 68, 68, 0.9);
+  color: white; padding: 12px;
+  border-radius: 8px; font-size: 0.9rem; text-align: center;
+  margin-bottom: 20px;
+  animation: shake 0.4s;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); } 75% { transform: translateX(5px); }
+}
+
+/* FOOTER */
+.card-footer { text-align: center; margin-top: 25px; font-size: 0.95rem; }
+.card-footer p { color: rgba(255,255,255,0.8); }
+
+.register-link {
+  color: var(--c-sky); font-weight: 700; text-decoration: none; margin-left: 5px;
+}
+.register-link:hover { color: #fff; text-decoration: underline; }
+
+/* LOADER */
+.loader {
+  width: 20px; height: 20px; border: 3px solid rgba(44, 62, 80, 0.3);
+  border-top-color: var(--c-dark); border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .login-card { padding: 30px 20px; }
+  .form-options { flex-direction: column; gap: 10px; align-items: flex-start; }
+}

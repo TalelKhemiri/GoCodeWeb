@@ -1,0 +1,105 @@
+/* =======================================================
+   HEADER ISOLÉ (GOCODE)
+   Couleurs : Bleu Nuit (#2C3E50) & Bleu Ciel (#A4D7E1)
+   ======================================================= */
+
+.gc-header-section {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 70px;
+  background-color: #2C3E50; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  display: flex; align-items: center; box-sizing: border-box;
+}
+
+.gc-header-container {
+  width: 100%; padding: 0 40px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+/* --- GAUCHE --- */
+.gc-header-left { display: flex; align-items: center; gap: 20px; }
+
+.gc-header-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 1.5rem; font-weight: 800; color: #fff;
+  text-decoration: none; letter-spacing: -0.5px;
+}
+.gc-header-logo svg, .gc-dot { color: #A4D7E1; }
+
+.gc-divider {
+  width: 1px; height: 25px; background-color: rgba(255,255,255,0.2); margin: 0 10px;
+}
+
+/* Navigation */
+.gc-nav-links { display: flex; align-items: center; gap: 30px; /* Un peu plus d'espace pour l'agrandissement */ }
+
+.gc-link-item {
+  text-decoration: none; 
+  color: #bdc3c7; /* Couleur grise par défaut */
+  font-size: 0.95rem; /* Taille normale */
+  font-weight: 500;   /* Poids normal */
+  display: flex; align-items: center; gap: 8px;
+  transition: all 0.3s ease; /* Transition fluide pour le changement de taille */
+  position: relative;
+}
+
+.gc-link-item:hover { color: #fff; }
+
+/* === ETAT ACTIF (PAGE COURANTE) === */
+.gc-link-item.active {
+  color: #A4D7E1;       /* Bleu ciel */
+  font-weight: 800;     /* Gras */
+  font-size: 1.05rem;   /* Légèrement plus grand */
+  transform: scale(1.1); /* Zoom global */
+}
+
+/* Petit mouvement au survol UNIQUEMENT sur l'élément actif */
+.gc-link-item.active:hover {
+  transform: scale(1.15) translateY(-2px); /* Grossit encore un peu et monte légèrement */
+  text-shadow: 0 0 10px rgba(164, 215, 225, 0.6); /* Petit effet néon */
+}
+
+.gc-admin { background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 5px; }
+
+/* --- DROITE --- */
+.gc-header-right { display: flex; align-items: center; }
+.gc-guest-menu { display: flex; align-items: center; gap: 15px; }
+
+.gc-btn-login {
+  text-decoration: none; color: #fff; font-weight: 600; font-size: 0.95rem;
+  transition: color 0.3s;
+}
+.gc-btn-login:hover { color: #A4D7E1; }
+
+.gc-btn-register {
+  text-decoration: none;
+  background: #A4D7E1; color: #2C3E50;
+  padding: 8px 24px; border-radius: 50px;
+  font-weight: 700; font-size: 0.95rem;
+  transition: transform 0.2s, background 0.2s;
+}
+.gc-btn-register:hover { background: #fff; transform: translateY(-2px); }
+
+/* --- USER CONNECTÉ --- */
+.gc-user-menu {
+  display: flex; align-items: center; gap: 15px;
+  background: rgba(255,255,255,0.05); padding: 5px 15px 5px 5px;
+  border-radius: 30px; border: 1px solid rgba(255,255,255,0.1);
+}
+.gc-user-info { display: flex; align-items: center; gap: 10px; }
+.gc-avatar {
+  width: 30px; height: 30px; background: #A4D7E1; color: #2C3E50;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+.gc-username { color: #fff; font-weight: 600; font-size: 0.9rem; }
+.gc-btn-logout {
+  background: none; border: none; color: #bdc3c7; cursor: pointer; padding: 0;
+}
+.gc-btn-logout:hover { color: #e74c3c; }
+
+@media (max-width: 900px) {
+  .gc-nav-links { display: none; }
+  .gc-header-container { padding: 0 20px; }
+}

@@ -1,0 +1,202 @@
+/* =======================================================
+   PAGE CONTACT - VERSION FINALE (PREMIUM & CORRIGÉE)
+   Prefixe: .gc-contact- pour isolation totale
+   ======================================================= */
+
+/* 1. WRAPPER PLEINE PAGE AVEC IMAGE DE FOND */
+.gc-contact-wrapper {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Marge haute pour que le Header fixe ne cache pas le contenu */
+    padding: 100px 20px 40px 20px; 
+    
+    /* IMAGE DE FOND : Vue intérieure voiture moderne */
+    background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Overlay bleu nuit pour assombrir l'image */
+.gc-contact-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.7));
+    z-index: 1;
+}
+
+.gc-contact-container {
+    position: relative; z-index: 2;
+    width: 100%; max-width: 1000px;
+}
+
+/* 2. LA CARTE CENTRALE (GLASSMORPHISM) */
+.gc-contact-card {
+    background: rgba(255, 255, 255, 0.1); /* Transparence */
+    backdrop-filter: blur(20px); /* Flou d'arrière plan */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    animation: gcFadeInUp 0.8s ease-out;
+}
+
+@keyframes gcFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- PARTIE GAUCHE (INFOS) --- */
+.gc-contact-info {
+    flex: 1;
+    background: rgba(44, 62, 80, 0.6);
+    padding: 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.gc-contact-title { font-size: 2rem; margin-bottom: 20px; font-weight: 800; color: #A4D7E1; }
+.gc-contact-desc { line-height: 1.6; margin-bottom: 40px; opacity: 0.9; }
+
+.gc-info-list { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
+.gc-info-item { display: flex; align-items: center; gap: 15px; font-size: 1.05rem; }
+.gc-icon-circle {
+    width: 40px; height: 40px; background: rgba(164, 215, 225, 0.2);
+    color: #A4D7E1; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* --- NOUVEAUX BOUTONS RÉSEAUX SOCIAUX (PREMIUM) --- */
+.gc-social-section h4 { 
+    margin-bottom: 15px; font-size: 0.9rem; 
+    text-transform: uppercase; letter-spacing: 1px; color: #bdc3c7; 
+}
+
+.gc-social-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Carte Globale du Bouton */
+.gc-social-card {
+    flex: 1;
+    min-width: 160px;
+    display: flex; align-items: center; gap: 15px;
+    padding: 12px 20px; border-radius: 15px;
+    text-decoration: none; color: white;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Style Facebook */
+.fb-card {
+    background: linear-gradient(135deg, #1877F2 0%, #0056b3 100%);
+    box-shadow: 0 10px 20px rgba(24, 119, 242, 0.3);
+}
+.fb-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(24, 119, 242, 0.5);
+}
+
+/* Style Instagram */
+.insta-card {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    box-shadow: 0 10px 20px rgba(220, 39, 67, 0.3);
+}
+.insta-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(220, 39, 67, 0.5);
+}
+
+/* L'icône (Rond Blanc) */
+.gc-icon-box {
+    background: rgba(255, 255, 255, 0.2);
+    width: 45px; height: 45px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: transform 0.4s ease, background 0.4s, color 0.4s;
+}
+
+/* Animation au survol */
+.gc-social-card:hover .gc-icon-box {
+    transform: rotate(15deg) scale(1.1);
+    background: white;
+}
+.fb-card:hover .gc-icon-box { color: #1877F2; }
+.insta-card:hover .gc-icon-box { color: #dc2743; }
+
+/* Texte Social */
+.gc-social-info { display: flex; flex-direction: column; }
+.gc-social-name { font-weight: 800; font-size: 1rem; text-transform: uppercase; }
+.gc-social-handle { font-size: 0.8rem; opacity: 0.8; font-weight: 500; }
+
+/* Décoration voiture fond */
+.gc-bg-icon {
+    position: absolute; bottom: -20px; right: -20px;
+    opacity: 0.1; color: white; transform: rotate(-15deg);
+}
+
+/* --- PARTIE DROITE (FORMULAIRE) --- */
+.gc-contact-form-section {
+    flex: 1.2;
+    background: #fff;
+    padding: 40px;
+    color: #2C3E50;
+}
+
+.gc-form h3 { margin-top: 0; margin-bottom: 30px; font-size: 1.5rem; color: #2C3E50; }
+
+.gc-input-group { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
+.gc-input-group label { font-size: 0.9rem; font-weight: 600; color: #34495e; }
+
+/* === CORRECTION DES CHAMPS INPUT (TEXTE VISIBLE) === */
+.gc-input-group input, 
+.gc-input-group textarea,
+.gc-select {
+    padding: 12px 15px;
+    border: 2px solid #ecf0f1;
+    border-radius: 8px;
+    font-size: 1rem; 
+    font-family: inherit;
+    transition: border-color 0.3s;
+    
+    /* ESSENTIEL : Force le texte foncé et le fond gris clair */
+    color: #2C3E50 !important; 
+    background-color: #f9fbfd !important;
+}
+
+.gc-input-group input:focus, 
+.gc-input-group textarea:focus,
+.gc-select:focus {
+    border-color: #A4D7E1; 
+    outline: none; 
+    background-color: #ffffff !important; /* Fond blanc pur au clic */
+}
+
+.gc-submit-btn {
+    width: 100%; padding: 14px;
+    background-color: #2C3E50; color: #A4D7E1;
+    border: none; border-radius: 8px;
+    font-size: 1.1rem; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: background 0.3s; margin-top: 10px;
+}
+.gc-submit-btn:hover { background-color: #34495e; }
+
+/* Responsive Mobile */
+@media (max-width: 850px) {
+    .gc-contact-card { flex-direction: column; }
+    .gc-contact-info, .gc-contact-form-section { padding: 30px 20px; }
+    .gc-bg-icon { display: none; }
+}
