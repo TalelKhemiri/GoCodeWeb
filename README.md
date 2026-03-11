@@ -126,7 +126,13 @@ Make sure the following are installed before proceeding:
 
 > ⚠️ Run all commands from the **project root** unless stated otherwise.
 
-### 1️⃣ Database Setup
+Two setup options are available — choose the one that fits your workflow:
+
+---
+
+### ⚡ Option A — Automated Setup *(Recommended)*
+
+#### 1️⃣ Database Setup
 
 ```bash
 cd backend
@@ -136,11 +142,9 @@ pip install -r requirements.txt
 sudo ./venv/bin/python DBcreate.py
 ```
 
-> This automatically creates the required MySQL database for GoCode.
+> Automatically creates the required MySQL database for GoCode.
 
----
-
-### 2️⃣ Backend Setup
+#### 2️⃣ Backend Setup
 
 ```bash
 sudo ./venv/bin/python setup.py
@@ -157,9 +161,7 @@ The script will automatically:
 
 **Backend available at:** `http://127.0.0.1:8000/`
 
----
-
-### 3️⃣ Frontend Setup
+#### 3️⃣ Frontend Setup
 
 Open a **new terminal**, then run:
 
@@ -169,6 +171,49 @@ python setup.py
 ```
 
 When prompted, select **Option 1 – First Time Setup**.
+
+**Frontend available at:** `http://localhost:5173/`
+
+---
+
+### 🔧 Option B — Manual Setup *(Full control)*
+
+Prefer to run each step yourself? Follow the commands below.
+
+#### 1️⃣ Database
+
+```bash
+mysql -u root -p
+```
+
+```sql
+CREATE DATABASE gocode_db;
+EXIT;
+```
+
+#### 2️⃣ Backend
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate          # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py makemigrations users course
+python manage.py migrate
+python manage.py runserver
+```
+
+**Backend available at:** `http://127.0.0.1:8000/`
+
+#### 3️⃣ Frontend
+
+Open a **new terminal**, then run:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
 **Frontend available at:** `http://localhost:5173/`
 
@@ -253,7 +298,7 @@ Please follow existing code conventions and include relevant comments.
 ## 📄 License
 
 This project is currently for **educational purposes**.  
-A formal open-source license (e.g., MIT) will be added in a future release.
+License can be added later.
 
 ---
 
