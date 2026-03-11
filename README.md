@@ -1,62 +1,70 @@
 # GoCode Learning Platform 🎓
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![Django](https://img.shields.io/badge/Django-REST-green)
-![React](https://img.shields.io/badge/React-Vite-blue)
-![MySQL](https://img.shields.io/badge/Database-MySQL-orange)
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)
+![Django](https://img.shields.io/badge/Django-REST_Framework-green?style=flat-square&logo=django)
+![React](https://img.shields.io/badge/React-Vite-61DAFB?style=flat-square&logo=react)
+![MySQL](https://img.shields.io/badge/Database-MySQL-orange?style=flat-square&logo=mysql)
+![License](https://img.shields.io/badge/License-Educational-lightgrey?style=flat-square)
 
-**GoCode** is a full-stack online learning platform that enables instructors to manage courses and allows students to enroll, learn, and track progress through a modern web interface.
+**GoCode** is a full-stack online learning platform that enables instructors to create and manage courses, while students can enroll, learn, and track their progress through a modern web interface.
 
-The project is built with **Django REST Framework** on the backend and **React + Vite** on the frontend, with automation scripts to make setup fast and beginner-friendly.
+Built with **Django REST Framework** on the backend and **React + Vite** on the frontend, with automation scripts to make setup fast and beginner-friendly.
 
 ---
 
 ## ✨ Features
 
-- 👩‍🏫 Instructor course creation & management
-- 🎓 Student enrollment and progress tracking
-- 📊 Clean, responsive dashboard UI
-- 🔐 RESTful API with Django
-- ⚡ Fast frontend using Vite
-- 🛠 Automated setup scripts (backend & frontend)
+| Feature | Description |
+|---|---|
+| 👩‍🏫 Instructor Dashboard | Create, edit, and manage courses |
+| 🎓 Student Enrollment | Browse and enroll in available courses |
+| 📊 Progress Tracking | Visual tracking of learning progress |
+| 🔐 REST API | Secure endpoints via Django REST Framework |
+| ⚡ Fast Frontend | Hot-reload dev experience with Vite |
+| 🛠 Auto Setup | One-command setup scripts for backend & frontend |
 
 ---
 
 ## 🖼 Screenshots
 
-![screenshot](docs/screenshots/Screenshot1.png)
-![screenshot](docs/screenshots/Screenshot2.png)
+<p align="center">
+  <img src="docs/screenshots/Screenshot1.png" width="48%" alt="Dashboard View"/>
+  &nbsp;
+  <img src="docs/screenshots/Screenshot2.png" width="48%" alt="Course View"/>
+</p>
 
 ---
 
-
 ## 📑 Table of Contents
 
-- [Project Structure](#-project-structure)
-- [Technology Stack](#-technology-stack)
-- [Prerequisites](#-prerequisites)
-- [Installation Guide](#-installation-guide)
-- [Running the Application](#-running-the-application)
-- [API Overview](#-api-overview)
-- [Troubleshooting](#-troubleshooting)
-- [Production Notes](#-production-notes)
+- [📂 Project Structure](#-project-structure)
+- [🛠 Technology Stack](#-technology-stack)
+- [⚙️ Prerequisites](#️-prerequisites)
+- [🚀 Installation Guide](#-installation-guide)
+- [▶️ Running the Application](#️-running-the-application)
+- [🔌 API Overview](#-api-overview)
+- [🐞 Troubleshooting](#-troubleshooting)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-Project_Root/
-├── backend/                # Django REST API
-│   ├── DBcreate.py         # MySQL database creation script
-│   ├── setup.py            # Backend automation script
-│   ├── manage.py           # Django entry point
+GoCode/
+├── backend/                    # Django REST API
+│   ├── DBcreate.py             # MySQL database creation script
+│   ├── setup.py                # Backend automation script
+│   ├── requirements.txt        # Python dependencies
+│   ├── manage.py               # Django entry point
 │   └── ...
-├── frontend/               # React client
-│   ├── setup.py            # Frontend automation script
-│   ├── package.json
+├── frontend/                   # React + Vite client
+│   ├── setup.py                # Frontend automation script
+│   ├── package.json            # Node dependencies
 │   └── ...
-├── docs/                   # Documentation & screenshots
+├── docs/                       # Documentation & screenshots
+│   └── screenshots/
 └── README.md
 ```
 
@@ -64,42 +72,71 @@ Project_Root/
 
 ## 🛠 Technology Stack
 
-### Backend
-- Python 3.10+
-- Django
-- Django REST Framework
-- MySQL (ensure that mysql -u root can connect)
-
-### Frontend
-- Node.js (LTS)
-- React
-- Vite
+<table>
+  <tr>
+    <th>Layer</th>
+    <th>Technology</th>
+    <th>Purpose</th>
+  </tr>
+  <tr>
+    <td rowspan="4"><strong>Backend</strong></td>
+    <td>Python 3.10+</td>
+    <td>Core language</td>
+  </tr>
+  <tr>
+    <td>Django</td>
+    <td>Web framework</td>
+  </tr>
+  <tr>
+    <td>Django REST Framework</td>
+    <td>API layer</td>
+  </tr>
+  <tr>
+    <td>MySQL</td>
+    <td>Relational database</td>
+  </tr>
+  <tr>
+    <td rowspan="3"><strong>Frontend</strong></td>
+    <td>Node.js (LTS)</td>
+    <td>Runtime environment</td>
+  </tr>
+  <tr>
+    <td>React</td>
+    <td>UI library</td>
+  </tr>
+  <tr>
+    <td>Vite</td>
+    <td>Build tool & dev server</td>
+  </tr>
+</table>
 
 ---
 
 ## ⚙️ Prerequisites
 
-Ensure the following are installed:
+Make sure the following are installed before proceeding:
 
-- Python 3.10+ (added to PATH)
-- Node.js (LTS)
-- MySQL Server (running)
+- ✅ **Python 3.10+** — [python.org](https://www.python.org/downloads/) · must be added to PATH
+- ✅ **Node.js LTS** — [nodejs.org](https://nodejs.org/)
+- ✅ **MySQL Server** — running locally · verify with `mysql -u root`
 
 ---
 
 ## 🚀 Installation Guide
+
+> ⚠️ Run all commands from the **project root** unless stated otherwise.
 
 ### 1️⃣ Database Setup
 
 ```bash
 cd backend
 python -m venv venv
-source ./venv/bin/activate
-pip install -r requierments
+source ./venv/bin/activate        # Windows: venv\Scripts\activate
+pip install -r requirements.txt
 sudo ./venv/bin/python DBcreate.py
 ```
 
-Creates the required MySQL database automatically.
+> This automatically creates the required MySQL database for GoCode.
 
 ---
 
@@ -109,92 +146,115 @@ Creates the required MySQL database automatically.
 sudo ./venv/bin/python setup.py
 ```
 
-Choose **Option 1 – Fresh Start**.
+When prompted, select **Option 1 – Fresh Start**.
 
-✔ Installs dependencies  
-✔ Runs migrations  
-✔ Creates admin user  
-✔ Starts Django server
+The script will automatically:
 
-Backend runs at:
-```
-http://127.0.0.1:8000/
-```
+- ✔ Install all Python dependencies  
+- ✔ Run Django database migrations  
+- ✔ Create an admin superuser  
+- ✔ Start the Django development server  
+
+**Backend available at:** `http://127.0.0.1:8000/`
 
 ---
 
 ### 3️⃣ Frontend Setup
+
+Open a **new terminal**, then run:
 
 ```bash
 cd frontend
 python setup.py
 ```
 
-Choose **Option 1 – First Time Setup**.
+When prompted, select **Option 1 – First Time Setup**.
 
-Frontend runs at:
-```
-http://localhost:5173/
-```
+**Frontend available at:** `http://localhost:5173/`
 
 ---
 
 ## ▶️ Running the Application
 
-Both servers must be running:
-- Backend → Port 8000
-- Frontend → Port 5173
+Both servers must be running simultaneously:
+
+```
+Backend  →  http://127.0.0.1:8000/   (Django)
+Frontend →  http://localhost:5173/   (React + Vite)
+```
+
+Open your browser and go to **http://localhost:5173/** to use GoCode.
 
 ---
 
 ## 🔌 API Overview
 
-Example endpoints:
+**Base URL:** `http://127.0.0.1:8000/api/`
 
-```http
-GET    /api/courses/
-POST   /api/courses/
-GET    /api/students/
-POST   /api/enroll/
-```
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/courses/` | List all courses |
+| `POST` | `/api/courses/` | Create a new course |
+| `GET` | `/api/students/` | List all students |
+| `POST` | `/api/enroll/` | Enroll a student in a course |
 
-> Full API documentation can be added later using Swagger or Postman.
+> 📘 Full API documentation via **Swagger** or **Postman** will be added in a future update.
 
 ---
 
 ## 🐞 Troubleshooting
 
-**Migration or database errors**
+<details>
+<summary><strong>Migration or database errors</strong></summary>
+
 ```bash
+cd backend
+source ./venv/bin/activate
 python setup.py
-# Choose Option 1
+# → Choose Option 1 – Fresh Start
+```
+</details>
+
+<details>
+<summary><strong>Frontend shows a network or connection error</strong></summary>
+
+- Confirm the Django backend is running on port `8000`
+- Check for port conflicts or firewall rules
+- Verify the API base URL in the frontend config matches the backend
+</details>
+
+<details>
+<summary><strong>MySQL connection refused</strong></summary>
+
+```bash
+sudo systemctl start mysql     # Start MySQL service
+mysql -u root                  # Verify root access
 ```
 
-**Frontend network error**
-- Ensure backend is running
-- Check correct ports
+Also check that the credentials in `DBcreate.py` match your local MySQL setup.
+</details>
 
 ---
 
-## 🚀 Production Notes
+## 🤝 Contributing
 
-For deployment:
-- Use environment variables for secrets
-- Configure CORS properly
-- Use Gunicorn + Nginx
-- Build frontend with `npm run build`
+Contributions are welcome and appreciated!
 
----
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m "Add: your feature"`
+4. Push to your branch: `git push origin feature/your-feature-name`
+5. Open a **Pull Request**
 
-## 🤝 Contribution
-
-Contributions are welcome!  
-Fork the repo, create a feature branch, and submit a pull request.
+Please follow existing code conventions and include relevant comments.
 
 ---
 
 ## 📄 License
 
-This project is for educational purposes. License can be added later.
+This project is currently for **educational purposes**.  
+A formal open-source license (e.g., MIT) will be added in a future release.
 
-Happy coding 🚀
+---
+
+<p align="center">Happy coding 🚀</p>
